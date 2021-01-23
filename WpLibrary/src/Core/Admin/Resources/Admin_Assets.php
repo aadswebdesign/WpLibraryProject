@@ -6,8 +6,7 @@
  * Time: 14:25
  */
 
-namespace src\Core\Admin\Resourses;
-
+namespace src\Core\Admin\Resources;
 
 trait Admin_Assets
 {
