@@ -8,7 +8,7 @@
 
 namespace src\Core\Admin\Resources;
 
-trait Admin_Assets
+trait AdminAssets
 {
     public $_class;
     protected function _admin_assets_hooks(){
