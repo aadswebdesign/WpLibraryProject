@@ -34,8 +34,6 @@ final class SvgDrawing extends addElementsContainer
 
     public function toXMLString(){
         $this->_svg_print .= $this->__svg_block;
-        $this->create_stylesheet();
-        $this->create_svg_file();
         return $this->_svg_print;
     }
 }
