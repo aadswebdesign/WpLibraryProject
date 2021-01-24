@@ -7,18 +7,10 @@
  */
 
 namespace src\SvgManager;
-
-
 use src\SvgManager\Fragments\SvgBlock;
 use src\SvgManager\Containers\addElementsContainer;
-use src\SvgManager\Factory\CreateSVGFile;
-use src\SvgManager\Factory\CreateExternalStyleSheet;
-
-
 final class SvgDrawing extends addElementsContainer
 {
-    use CreateSVGFile;
-    use CreateExternalStyleSheet;
     private $__svg_block;
 
     public function __construct($viewbox = null, $x = null, $y = null, $width = null, $height = null)
