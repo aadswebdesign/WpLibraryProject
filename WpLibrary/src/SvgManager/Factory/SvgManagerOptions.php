@@ -242,12 +242,6 @@ trait SvgManagerOptions
         return $this;
     }
 
-    public function setExternalStylesheet($external_stylesheet)
-    {
-        $this->_external_stylesheet = $external_stylesheet;
-        return $this;
-    }
-
     //--F--
     public function setFill($fill)
     {
@@ -854,33 +848,6 @@ trait SvgManagerOptions
         return $this;
     }
 
-    public function getStylesheetCreate()
-    {
-        return $this->_stylesheet_create;
-    }
-
-    public function setStylesheetName($stylesheet_name)
-    {
-        $this->_stylesheet_name = $stylesheet_name;
-        return $this;
-    }
-
-    public function setStylesheetPath($stylesheet_path)
-    {
-        $this->_stylesheet_path = $stylesheet_path;
-        return $this;
-    }
-
-    public function getStylesheetName()
-    {
-        return $this->_stylesheet_name;
-    }
-
-    public function getStylesheetPath()
-    {
-        return $this->_stylesheet_path;
-    }
-
     public function setSvgAttributes($object, $svg_attributes)
     {
         $this->_svg_attributes[$object] = $svg_attributes;
@@ -896,29 +863,6 @@ trait SvgManagerOptions
     public function setSvgContent($svg_content)
     {
         $this->_svg_content = $svg_content;
-        return $this;
-    }
-
-
-    public function setSvgFileName($svg_file_name)
-    {
-        $this->_svg_file_name = $svg_file_name;
-        return $this;
-    }
-
-    public function getSvgFileName()
-    {
-        return $this->_svg_file_name;
-    }
-
-    public function getSvgFilePath()
-    {
-        return $this->_svg_file_path;
-    }
-
-    public function setSvgFilePath($svg_file_path)
-    {
-        $this->_svg_file_path = $svg_file_path;
         return $this;
     }
 
