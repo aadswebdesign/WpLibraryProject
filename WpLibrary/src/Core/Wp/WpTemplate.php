@@ -61,8 +61,6 @@ trait WpTemplate
         $this->_html .=  $this->_wp_entry_content();
         $this->_html .= __("</div></div>");
 
-
-
         return (string)$this->_html;
     }
 }
