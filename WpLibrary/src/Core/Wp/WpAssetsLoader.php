@@ -118,12 +118,4 @@ class WpAssetsLoader
                 $compress_css = false;
         endif;
     }
-
-
-
-
-
-
-
-
 }
