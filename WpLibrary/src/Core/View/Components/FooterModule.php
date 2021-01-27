@@ -14,8 +14,14 @@ class FooterModule
     use CoreOptions;
 
     protected function _html_start(){
-        $this->_html = __("<section class='{$this->_core_class['footer_section']}'>");
-        $this->_html .= __("<footer class='{$this->_core_class['footer']}'>");
+        if(!empty($this->_core_class['footer_section']))
+            $this->_html = __("<section class='{$this->_core_class['footer_section']}'>");
+        else
+            $this->_html = __("<section>");
+        if(!empty($this->_core_class['footer']))
+            $this->_html .= __("<footer class='{$this->_core_class['footer']}'>");
+        else
+            $this->_html .= __("<footer>");
         $this->_html .= __("<small id='authorInfo' class='block-01 absolute' title='aad&lsquo;s webdesign'>");
         $this->_html .= __("awd");
         $this->_html .= __("<time><i> &#169; </i>");

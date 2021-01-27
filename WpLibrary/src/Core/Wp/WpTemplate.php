@@ -21,8 +21,18 @@ trait WpTemplate
         $this->_page_slug = $post->post_name;
 
         while ( have_posts() ) : the_post();
-            $this->_content = __("<div id='{$this->_page_slug}_entry_content' class='{$this->_core_class['entry_content_class']}'>");
-            $this->_content .= __("<div class='{$this->_core_class['entry_content_inner_class']}'>");
+            if(!empty($this->_core_id['entry_content_id']) && !empty($this->_core_class['entry_content_class']))
+                $this->_content = __("<div id='{$this->_page_slug}_entry_content' class='{$this->_core_class['entry_content_class']}'>");
+            elseif(!empty($this->_core_id['entry_content_id']))
+                $this->_content = __("<div id='{$this->_page_slug}_entry_content'>");
+            elseif(!empty($this->_core_class['entry_content_class']))
+                $this->_content = __("<div class='{$this->_core_class['entry_content_class']}'>");
+            else
+                $this->_content = __("<div>");
+            if(!empty($this->_core_class['entry_content_inner_class']))
+                $this->_content .= __("<div class='{$this->_core_class['entry_content_inner_class']}'>");
+            else
+                $this->_content .= __("<div>");
             $this->_content .= get_the_content(); //Page Content
             $this->_content .= __("</div></div>");
         endwhile; //resetting the page loop
@@ -43,16 +53,22 @@ trait WpTemplate
         global $post;
         $id = get_current_blog_id();
         $site_id = 'site_'. $id . '_';
-
         $this->_page_slug = $post->post_name;
-        //global $wpdb;
-        $this->_html = __("<div class='{$this->_core_class['content_container_class']}'>");
-
-        $this->_html .= __("<div class='{$this->_core_class['content_container_inner_class']}'>");
+        if(!empty($this->_core_class['content_container_class']))
+            $this->_html = __("<div class='{$this->_core_class['content_container_class']}'>");
+        else
+            $this->_content .= __("<div>");
+        if(!empty($this->_core_class['content_container_inner_class']))
+            $this->_html .= __("<div class='{$this->_core_class['content_container_inner_class']}'>");
+        else
+        $this->_content .= __("<div>");
         if(!empty($this->_sidebar[2])){
             $this->_html .= __($this->_sidebar[2]);
         }
-        $this->_html .= __("<header id='{$this->_page_slug}_entry_header' class='{$this->_core_class['entry_header_class']}'>");
+        if(!empty($this->_core_class['entry_content_class']))
+            $this->_html .= __("<header id='{$this->_page_slug}_entry_header' class='{$this->_core_class['entry_header_class']}'>");
+        else
+            $this->_html .= __("<header id='{$this->_page_slug}_entry_header'>");
         if(!empty($this->_svg_drawing['entry_header'])){
             $this->_html .= __($this->_svg_drawing['entry_header']);
             updateSiteItem($site_id . 'entry_header', __((string)$this->_svg_drawing['entry_header']));
@@ -60,7 +76,6 @@ trait WpTemplate
         $this->_html .= __("</header>");
         $this->_html .=  $this->_wp_entry_content();
         $this->_html .= __("</div></div>");
-
         return (string)$this->_html;
     }
 }
