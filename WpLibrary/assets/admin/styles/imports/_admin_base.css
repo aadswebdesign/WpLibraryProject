@@ -1,0 +1,21 @@
+.awd-admin-body{
+    width: 100%;
+    height: 100%;
+    background: #ebfaff;
+    color: #2542c0;
+    font-size: 1.0rem;
+    z-index: 100;
+    overflow: hidden;
+}
+
+.awd-admin-body tr.inactive[data-slug = 'WpLibrary'] th.check-column,
+.awd-admin-body tr.inactive[data-slug = 'WpLibrary'] td.theme-title,
+.awd-admin-body tr.inactive[data-slug = 'WpLibrary'] td.column-description,
+.awd-admin-body tr.inactive[data-slug = 'WpLibrary'] td.column-auto-updates
+{
+    display: none;
+}
+
+.awd-admin-body ul.subsubsub li.disabled a{
+    display: none;
+}
